@@ -19,7 +19,7 @@ pageextension 50150 "JSON" extends "Sales Order"
                     O2: JsonObject;
                     item: JsonObject; //object that is added to an array
                     ja: JsonArray; //array in which items are added
-                    Token: JsonToken;
+                    Token: JsonToken; //used when it can be anything
                     T2: JsonToken;
                     T3: JsonToken;
                     v: JsonValue;
@@ -52,7 +52,7 @@ pageextension 50150 "JSON" extends "Sales Order"
                                 if T3.IsValue then begin
                                     v := T3.AsValue();
                                     //Message('Value as a code: %1 ', v.AsCode());
-                                    Message('Value as a code: %1 ', CalcDate('+5D', v.AsDate()));
+                                    Message('Value as a code: %1 ', CalcDate('+5D', v.AsDate())); //+5D means adding 5 days to a date
 
                                 end;
                                 //Message('Value: %1', T3.AsValue());
